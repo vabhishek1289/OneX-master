@@ -1,0 +1,43 @@
+<div *ngIf="user">
+  <h2 class="page-header">{{user.name}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Username:: {{user.username}} </li>
+    <li class="list-group-item">Email:: {{user.email}} </li>
+  </ul>
+  <h2 class="page-header">Last 10 compile report: </h2>
+  <hr>
+  <div *ngFor="let report of reports">
+    <div class="panel panel-success" *ngIf="!report.isError">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>{{report.language}}</strong></h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+        Program:
+        {{ report.code }}
+      </pre>
+        <pre>
+        Output:
+        {{report.output}}
+      </pre>
+        <sub class="text-right">Compiled On: {{ dateFormat(report.compiledOn) }}</sub>
+      </div>
+    </div>
+    <div class="panel panel-danger" *ngIf="report.isError">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>{{report.language}}</strong></h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+        Program:
+        {{ report.code }}
+      </pre>
+        <pre>
+        Output:
+        {{report.output}}
+      </pre>
+        <sub class="text-right">Compiled On: {{ dateFormat(report.compiledOn) }}</sub>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="container">
+  <h2 class="page-heading">Dashboard</h2>
+  <hr>
+  <div class="col-lg-12">
+    <h4 class="page-heading">Program</h4>
+    <hr>
+    <div class="jumbotron">
+      <codemirror [(ngModel)]="code" id="code" [config]="{ lineNumbers: true ,styleActiveLine: true,matchBrackets: true, theme: 'monokai' ,mode: md }" >
+      </codemirror>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <h4 class="page-heading">Input</h4>
+    <hr>
+    <div class="jumbotron input-area">
+      <textarea [(ngModel)]="input" name="input" rows="7" placeholder="Input for Program">
+      </textarea>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <h4 class="page-heading">Options</h4>
+    <hr>
+    <div class="jumbotron">
+      <div class="container col-lg-12">
+      Select Language: <br>
+      <label class="radio-inline">
+        <input type="radio" (change)="changeMode()" [(ngModel)]="language" name="language" id="inlineRadio1" value="c" > C (Gcc)
+      </label>
+      <label class="radio-inline">
+        <input type="radio" (change)="changeMode()" [(ngModel)]="language" name="language" id="inlineRadio2" value="cpp"> C++ (Gcc)
+      </label>
+      <label class="radio-inline">
+        <input type="radio" (change)="changeMode()" [(ngModel)]="language" name="language" id="inlineRadio3" value="java"> Java
+      </label>
+      <label class="radio-inline">
+        <input type="radio" (change)="changeMode()" [(ngModel)]="language" name="language" id="inlineRadio3" value="python"> Python
+      </label>
+    </div>
+    <br><br><br>
+    <button type="button" (click)="onRunSubmit()" class="btn btn-primary">RUN</button>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <h4 class="page-heading">Output</h4>
+    <hr>
+    <pre *ngIf="output" class="panel panel-success">{{output}}</pre>
+    <pre *ngIf="error" class="panel panel-danger" >{{error}}</pre>
+  </div>
+</div>

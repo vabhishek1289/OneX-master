@@ -1,0 +1,8 @@
+*.c
+*.exe
+*.out
+node_modules/
+tempFiles/
+*.editorconfig
+*.conf.js
+

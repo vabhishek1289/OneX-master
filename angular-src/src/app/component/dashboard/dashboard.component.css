@@ -1,0 +1,8 @@
+.input-area {
+  padding: 19px;
+  text-align: center;
+}
+.input-area > textarea {
+  resize: none;
+  width: 100%;
+}
